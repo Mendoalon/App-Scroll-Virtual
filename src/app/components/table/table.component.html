@@ -1,0 +1,56 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">Vistual Scrool</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row m-3">
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="text-center">Tabla de Multiplicar</h5>
+
+                <div *ngIf="error"
+                     class="text-center">
+                    <span class="badge bg-danger mb-2">
+                        <strong>LOS VALORES INGRESADOS DEBEN DE SER MAYORES A CERO</strong>
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <input [(ngModel)]="tabla" class="form-control form-control-lg" type="number"
+                        placeholder="Ingrese la tabla">
+                </div>
+                <div class="mb-3">
+                    <input [(ngModel)]="hasta" class="form-control form-control-lg" type="number" placeholder="Hasta">
+                </div>
+                <div class="d-grid">
+                    <button (click)="caclular()" class="btn btn-success btn-lg gap-2 col-6 mx-auto">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="text-center">Resultado</h5>
+                <table class="table">
+                    <tr *ngFor="let valor of resultados; let i = index">
+                        <td class="text-center">
+                            {{valor.tabla}} x {{i}} = <span>{{valor.resultado}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
